@@ -1,0 +1,46 @@
+{  
+   "version":0,
+   "cicleNumFinish":5,
+   "actionTimeSg":120,
+   "investmentTimeSg":90,
+   "fluCardNum":3,
+   "fluCards":[  
+      {  
+         "description":"Bandada de avesx",
+         "rollNum":3,
+         "cardType":"?"
+      },
+      {  
+         "description":"flu 2",
+         "rollNum":2,
+         "cardType":"FLU"
+      },
+      {  
+         "description":"flu 3",
+         "rollNum":2,
+         "cardType":"MIX"
+      }
+   ],
+   "eventCards":[  
+      {  
+         "description":"Event 1"
+      },
+      {  
+         "description":"Event 2"
+      },
+      {  
+         "description":"Event 3"
+      }
+   ],
+   "gobCards":[  
+      {  
+         "description":"Gob 1"
+      },
+      {  
+         "description":"Gob 2"
+      },
+      {  
+         "description":"Gob 3"
+      }
+   ]
+}

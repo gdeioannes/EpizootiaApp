@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
 
 	public GameObject mainPanel;
 	public GameObject loopPanel;
+	public GameObject optionPanel;
 	public Text loopTxt;
 	public int loopNum=1;
 	public GameObject timerAccionPanel;
@@ -16,23 +17,31 @@ public class UIManager : MonoBehaviour {
 	public GameObject timerInfluenzaPanel;
 
 	// Use this for initialization
-	void Start () {
-		openGame();
-		changeLoopText();
+
+	void Start(){
 		if(_instance==null){
 			_instance=this;
 		}
 	}
 
-	private void openGame(){
+	public void setPanelData(){
+		timerAccionPanel.GetComponent<Timer>().maxTime=GameDataManager._instance.gameData.actionTimeSg;
+		timerInversionPanel.GetComponent<Timer>().maxTime=GameDataManager._instance.gameData.investmentTimeSg;
+	}
+
+	public void openGame(){
+		changeLoopText();
+		setPanelData();
 		closePanels();
 		mainPanel.SetActive(true);
 		timerAccionPanel.SetActive(true);
 	}
 
 	private void closePanels(){
+		setPanelData();
 		mainPanel.SetActive(false);
 		loopPanel.SetActive(false);
+		optionPanel.SetActive(false);
 		closeAllLoopPanels();
 	}
 
@@ -51,6 +60,11 @@ public class UIManager : MonoBehaviour {
 		closePanels();
 		timerAccionPanel.SetActive(true);
 		loopPanel.SetActive(true);
+	}
+
+	public void openOptionPanel(){
+		closePanels();
+		optionPanel.SetActive(true);
 	}
 
 	public void actionFase(){

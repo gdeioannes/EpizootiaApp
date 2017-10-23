@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-	private int maxTime=300;
+	public int maxTime;
 	private int totalTimeSg;
 	public Text timerTxt;
 	public GameObject playBtn;
@@ -28,6 +28,8 @@ public class Timer : MonoBehaviour {
 	public void OnEnable(){
 		if(timerStartFlag){
 			StartCoroutine(timerCorutine);
+		}else{
+			changeText();
 		}
 	}
 
@@ -54,6 +56,8 @@ public class Timer : MonoBehaviour {
 		}
 		timerTxt.text=mensajeFinal;
 		timerCorutine=timerCountDown();
+		totalTimeSg=maxTime;
+		timerStartFlag=false;
 	}
 
 	private void changeText(){
@@ -72,13 +76,13 @@ public class Timer : MonoBehaviour {
 		}else{
 			timerTxt.color=Color.white;
 		}
-		if(totalTimeSg<10){
+		if(totalTimeSg<10 && timerStartFlag){
 			SoundManager._instance.playBeep();
 		}
 	}
 
 	public void reset(){
-		totalTimeSg=300;
+		totalTimeSg=maxTime;
 		timerStartFlag=false;
 		StopCoroutine(timerCorutine);
 		changeText();
