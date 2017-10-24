@@ -12,5 +12,7 @@ public class GameData {
 	public List<FluCard> fluCards;
 	public List<EventCard> eventCards;
 	public List<GobCard> gobCards;
+	public List<ScenarioObj> scenarioObjs;
+
 
 }

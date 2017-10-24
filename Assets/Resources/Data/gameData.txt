@@ -6,41 +6,147 @@
    "fluCardNum":3,
    "fluCards":[  
       {  
-         "description":"Bandada de avesx",
+         "description":"Resultados",
+         "rollNum":2,
+         "cardType":"SOSPECHA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":2,
+         "cardType":"SOSPECHA"
+      },
+      {  
+         "description":"Resultados",
          "rollNum":3,
-         "cardType":"?"
+         "cardType":"SOSPECHA"
       },
       {  
-         "description":"flu 2",
-         "rollNum":2,
-         "cardType":"FLU"
+         "description":"Resultados",
+         "rollNum":3,
+         "cardType":"SOSPECHA"
       },
       {  
-         "description":"flu 3",
+         "description":"Resultados",
          "rollNum":2,
-         "cardType":"MIX"
+         "cardType":"SOSPECHA/INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":2,
+         "cardType":"SOSPECHA/INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":3,
+         "cardType":"SOSPECHA/INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":3,
+         "cardType":"SOSPECHA/INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":2,
+         "cardType":"INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":2,
+         "cardType":"INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":3,
+         "cardType":"INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":3,
+         "cardType":"INFLUENZA"
+      },
+      {  
+         "description":"Resultados",
+         "rollNum":3,
+         "cardType":"INFLUENZA"
+      },
+      {  
+         "description":"EPIZOOTIA, \n la influenza se expande",
+         "rollNum":0,
+         "cardType":"EPIZOOTIA"
+      },
+      {  
+         "description":"EPIZOOTIA, \n la influenza se expande",
+         "rollNum":0,
+         "cardType":"EPIZOOTIA"
+      },
+      {  
+         "description":"EPIZOOTIA, \n la influenza se expande",
+         "rollNum":0,
+         "cardType":"EPIZOOTIA"
       }
    ],
    "eventCards":[  
       {  
-         "description":"Event 1"
+         "description":"Se sospecha influenza en humedales"
       },
       {  
-         "description":"Event 2"
+         "description":"Se encuentra Influenza en Humedales"
       },
       {  
-         "description":"Event 3"
+         "description":"Se sospecha influenza en granjas vecinas"
+      },
+      {  
+         "description":"Se encuentra influenza en granjas vecinas"
+      },
+      {  
+         "description":"Se sospecha influenza en conglomerados de traspatio"
+      },
+      {  
+         "description":"Se encuentra influenza en conglomerados de traspatio"
+      },
+      {  
+         "description":"Se sospecha influenza en humedales y granjas vecinas"
+      },
+      {  
+         "description":"Se encuentra influenza en humedales y granjas vecinas"
       }
    ],
    "gobCards":[  
       {  
-         "description":"Gob 1"
+         "description":"Grupos animalista protestan en la carretera, mover pollos 1 espacio a la derecha"
       },
       {  
-         "description":"Gob 2"
+         "description":"Grupos animalista protestan en la carretera, separar pollos"
       },
       {  
-         "description":"Gob 3"
+         "description":"Desastre comunicacional, si tienes menos de 2 medidas preventiva pagar $60mil por un plan comunicacional"
+      },
+      {  
+         "description":"Desastre comunicacional, si tienes más de 2 influenzas pagar $60mil por un plan comunicacional"
+      },
+      {  
+         "description":"Migración de aves, influenza en humedales, lagos y montañas"
+      },
+      {  
+         "description":"Migración de aves, sospecha en humedales, lagos"
+      }
+   ],
+   "scenarioObjs":[  
+      {  
+         "name":"Humedal"
+      },
+      {  
+         "name":"Granja Vecina"
+      },
+      {  
+         "name":"Conglomerado Traspatio"
+      },
+      {  
+         "name":"Montaña"
+      },
+      {  
+         "name":"Lago"
       }
    ]
 }

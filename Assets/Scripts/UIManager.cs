@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour {
 
 	public static UIManager _instance;
 
+	public GameObject loadingPanel;
 	public GameObject mainPanel;
 	public GameObject loopPanel;
 	public GameObject optionPanel;
@@ -15,10 +16,14 @@ public class UIManager : MonoBehaviour {
 	public GameObject timerAccionPanel;
 	public GameObject timerInversionPanel;
 	public GameObject timerInfluenzaPanel;
+	public GameObject buildScenarioPanel;
+	public GameObject marketPayPanel;
+	public GameObject endGamePanel;
 
 	// Use this for initialization
 
 	void Start(){
+		loadingPanel.SetActive(true);
 		if(_instance==null){
 			_instance=this;
 		}
@@ -49,6 +54,9 @@ public class UIManager : MonoBehaviour {
 		timerAccionPanel.SetActive(false);
 		timerInversionPanel.SetActive(false);
 		timerInfluenzaPanel.SetActive(false);
+		buildScenarioPanel.SetActive(false);
+		marketPayPanel.SetActive(false);
+		endGamePanel.SetActive(false);
 	}
 
 	public void openMainPanel(){
@@ -65,6 +73,21 @@ public class UIManager : MonoBehaviour {
 	public void openOptionPanel(){
 		closePanels();
 		optionPanel.SetActive(true);
+	}
+
+	public void openBuildScenarioPanel(){
+		closeAllLoopPanels();
+		buildScenarioPanel.SetActive(true);
+	}
+
+	public void openMarketPayPanel(){
+		closeAllLoopPanels();
+		marketPayPanel.SetActive(true);
+	}
+
+	public void openEndGamePanel(){
+		closeAllLoopPanels();
+		endGamePanel.SetActive(true);
 	}
 
 	public void actionFase(){

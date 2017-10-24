@@ -75,27 +75,32 @@ public class EscenarioSanitario : MonoBehaviour {
 				setFlueCards();
 				Debug.Log("Rellenar cartas de Flu");
 			}
+			if(fluCards.Count==0){
+				setFlueCards();
+			}
 			FluCard fluCard=fluCards[Random.Range(0,fluCards.Count)];
 			fluCards.Remove(fluCard);
-			float numRoll=fluCard.rollNum;
+			Debug.Log(fluCards.Count);
+			int numRoll=fluCard.rollNum;
 
 
 			rollInfo+=fluCard.description+"\n";
 
 			for(int roll=0;roll<numRoll;roll++){
 				int strength=Random.Range(1,3);
-				int column=Random.Range(1,8);
-				int row=Random.Range(1,8);
+				string column=getComlumLetter();
+				string row=""+Random.Range(1,8);
 
-				if(fluCard.cardType=="FLU"){
+
+				if(fluCard.cardType=="INFLUENZA"){
 					rollInfo+="X ";
-				}else if(fluCard.cardType=="?"){
+				}else if(fluCard.cardType=="SOSPECHA"){
 					rollInfo+="? ";
 				}else{
 					rollInfo+=getTypeOfTrow(strength)+" ";
 				}
 
-				rollInfo+=getComlumLetter(column)+" "+row;
+				rollInfo+=column+" "+row;
 				if(roll!=numRoll-1){
 					rollInfo+="\n";
 				}
@@ -116,13 +121,12 @@ public class EscenarioSanitario : MonoBehaviour {
 			
 			//Carta Gobierno
 			if(gobCards.Count==0){
-				setEventCards();
+				setGobCards();
 				Debug.Log("Rellenar cartas de gob");
 			}
 			GobCard pickGobCard=gobCards[Random.Range(0,gobCards.Count)];
 			rollInfo=pickGobCard.description;
 			gobCards.Remove(pickGobCard);
-			Debug.Log(GameDataManager._instance.gameData.eventCards.Count);
 
 		}else if(cardCount<maxInfluCardCount+3 && GameDataManager._instance.gameData.cicleNumFinish<UIManager._instance.loopNum){
 			
@@ -156,46 +160,9 @@ public class EscenarioSanitario : MonoBehaviour {
 		}
 	}
 
-	private string getComlumLetter(int result){
-		switch (result) {
-
-		default:
-			break;
-		
-		case 1:
-			return "A";
-			break;
-
-		case 2:
-			return "B";
-			break;
-	
-		case 3:
-			return "C";
-			break;
-
-		case 4:
-			return "D";
-			break;
-		
-		case 5:
-			return "E";
-			break;
-
-		case 6:
-			return "F";
-			break;
-
-		case 7:
-			return "G";
-			break;
-
-		case 8:
-			return "H";
-			break;
-		}
-		return null;
-			
+	private string getComlumLetter(){
+		string letters= "ABCDEFGH";
+		return ""+letters[Random.Range(0,letters.Length)];
 	}
 
 

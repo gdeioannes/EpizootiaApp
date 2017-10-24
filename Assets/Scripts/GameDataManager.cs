@@ -18,7 +18,7 @@ public class GameDataManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fileUrl=Application.dataPath+"/Resources/Data/gameData.txt";
+		fileUrl="Data/gameData";
 		Debug.Log(fileUrl);
 		if(_instance==null){
 			_instance=this;
@@ -42,8 +42,10 @@ public class GameDataManager : MonoBehaviour {
 
 	private void readFile(){
 		string fileJson="";
-		if(File.Exists(fileUrl)){
-			fileJson=File.ReadAllText(fileUrl);
+		if(Resources.Load<TextAsset>(fileUrl)!=null){
+			TextAsset dataTextAsset=Resources.Load<TextAsset>(fileUrl);
+			Debug.Log(dataTextAsset.text);
+			fileJson = dataTextAsset.text;
 			gameData=JsonUtility.FromJson<GameData>(fileJson);
 			Debug.Log(gameData);
 			changeText();
@@ -56,7 +58,7 @@ public class GameDataManager : MonoBehaviour {
 	public void SaveFile(){
 		saveDataToObject();
 		string saveData=JsonUtility.ToJson(gameData);
-		File.WriteAllText(fileUrl,saveData);
+		File.WriteAllText("Assets/Resources/"+fileUrl+".txt",saveData);
 	}
 
 }
