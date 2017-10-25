@@ -128,7 +128,7 @@ public class EscenarioSanitario : MonoBehaviour {
 			rollInfo=pickGobCard.description;
 			gobCards.Remove(pickGobCard);
 
-		}else if(cardCount<maxInfluCardCount+3 && GameDataManager._instance.gameData.cicleNumFinish<UIManager._instance.loopNum){
+		}else if(cardCount<maxInfluCardCount+3){
 			
 			rollInfo="FIN CICLO\n"+UIManager._instance.loopNum;
 

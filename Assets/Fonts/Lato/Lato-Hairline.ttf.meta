@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: 8ad7be105972b4b1a8e6f701a228e893
+timeCreated: 1508908235
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lato
+  fontNames:
+  - Lato
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 293b5164e063342799b5bfbf7855a55c, type: 3}
+  - {fileID: 12800000, guid: 03a176a4068d046d9a7b155ffa33e441, type: 3}
+  - {fileID: 12800000, guid: 1bf6be48bd49546ec808cc9e2e6f6d80, type: 3}
+  - {fileID: 12800000, guid: 7b9428686fc6a46d3b95319453e16a0b, type: 3}
+  - {fileID: 12800000, guid: 6961eb98fc1d748a9aabee5b7fcf0099, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
