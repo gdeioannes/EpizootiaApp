@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour {
 	// Use this for initialization
 
 	void Start(){
-		loadingPanel.SetActive(true);
+		
 		if(_instance==null){
 			_instance=this;
 		}
@@ -35,11 +35,12 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void openGame(){
+		loadingPanel.SetActive(false);
 		changeLoopText();
-		setPanelData();
 		closePanels();
 		mainPanel.SetActive(true);
 		timerAccionPanel.SetActive(true);
+		Debug.Log("OPEN GAME");
 	}
 
 	private void closePanels(){
@@ -62,6 +63,11 @@ public class UIManager : MonoBehaviour {
 	public void openMainPanel(){
 		closePanels();
 		mainPanel.SetActive(true);
+	}
+
+	public void openLoadingPanel(){
+		closePanels();
+		loadingPanel.SetActive(true);
 	}
 
 	public void openLoopPanel(){

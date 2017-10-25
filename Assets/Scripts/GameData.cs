@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GameData {
 
 	public int version;
+	public bool sound;
 	public int cicleNumFinish;
 	public int actionTimeSg;
 	public int investmentTimeSg;

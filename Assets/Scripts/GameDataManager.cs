@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 using System.IO;
 
@@ -13,12 +14,13 @@ public class GameDataManager : MonoBehaviour {
 	public InputField actionTimeInput;
 	public InputField investmentTimeInput;
 	public InputField fluCardNumInput;
-	string fileUrl;
+	public SoundManager soundManager;
+	string fileUrl="Data/gameData";
+
 
 
 	// Use this for initialization
 	void Start () {
-		fileUrl="Data/gameData";
 		Debug.Log(fileUrl);
 		if(_instance==null){
 			_instance=this;
@@ -43,12 +45,13 @@ public class GameDataManager : MonoBehaviour {
 	private void readFile(){
 		string fileJson="";
 		if(Resources.Load<TextAsset>(fileUrl)!=null){
+			uiManager.openLoadingPanel();
 			TextAsset dataTextAsset=Resources.Load<TextAsset>(fileUrl);
 			Debug.Log(dataTextAsset.text);
 			fileJson = dataTextAsset.text;
 			gameData=JsonUtility.FromJson<GameData>(fileJson);
-			Debug.Log(gameData);
 			changeText();
+			soundManager.fromDataChange();
 			uiManager.openGame();
 		}else{
 			Debug.LogError("No Data File Found");
@@ -56,9 +59,16 @@ public class GameDataManager : MonoBehaviour {
 	}
 
 	public void SaveFile(){
+		string path="Assets/Resources/"+fileUrl+".txt";
+		using(StreamWriter writer=new StreamWriter(path)){
+		//UIManager._instance.openLoadingPanel();
 		saveDataToObject();
 		string saveData=JsonUtility.ToJson(gameData);
-		File.WriteAllText("Assets/Resources/"+fileUrl+".txt",saveData);
+		//File.WriteAllText("Assets/Resources/"+fileUrl+".txt",saveData);
+			Debug.Log("Check:"+saveData);
+			writer.WriteLine(saveData);
+		}
+		Debug.Log("Finish");
 	}
 
 }
