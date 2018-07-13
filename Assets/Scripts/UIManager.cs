@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
 	public GameObject mainPanel;
 	public GameObject loopPanel;
 	public GameObject optionPanel;
+	public GameObject exitPanel;
 	public Text loopTxt;
 	public int loopNum=1;
 	public GameObject timerAccionPanel;
@@ -27,6 +28,18 @@ public class UIManager : MonoBehaviour {
 		if(_instance==null){
 			_instance=this;
 		}
+	}
+
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			openExitPanel();
+		}
+	}
+
+
+
+	public void exitApp(){
+		Application.Quit();
 	}
 
 	public void setPanelData(){
@@ -48,8 +61,10 @@ public class UIManager : MonoBehaviour {
 		mainPanel.SetActive(false);
 		loopPanel.SetActive(false);
 		optionPanel.SetActive(false);
+		exitPanel.SetActive(false);
 		closeAllLoopPanels();
 	}
+
 
 	public void closeAllLoopPanels(){
 		timerAccionPanel.SetActive(false);
@@ -58,6 +73,14 @@ public class UIManager : MonoBehaviour {
 		buildScenarioPanel.SetActive(false);
 		marketPayPanel.SetActive(false);
 		endGamePanel.SetActive(false);
+	}
+
+	public void openExitPanel(){
+		exitPanel.SetActive(true);
+	}
+
+	public void closeExitPanel(){
+		exitPanel.SetActive(false);
 	}
 
 	public void openMainPanel(){
@@ -129,9 +152,5 @@ public class UIManager : MonoBehaviour {
 	private void changeLoopText(){
 		loopTxt.text=""+loopNum;
 	}
-
-	// Update is called once per frame
-	void Update () {
 		
-	}
 }

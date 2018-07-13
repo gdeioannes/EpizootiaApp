@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.UI;
 using System.IO;
+
 
 public class GameDataManager : MonoBehaviour {
 
@@ -15,13 +15,10 @@ public class GameDataManager : MonoBehaviour {
 	public InputField investmentTimeInput;
 	public InputField fluCardNumInput;
 	public SoundManager soundManager;
-	string fileUrl="Data/gameData";
-
-
+	string fileUrl="Data";
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log(fileUrl);
 		if(_instance==null){
 			_instance=this;
 		}
@@ -44,10 +41,19 @@ public class GameDataManager : MonoBehaviour {
 
 	private void readFile(){
 		string fileJson="";
-		if(Resources.Load<TextAsset>(fileUrl)!=null){
+		string path;
+		if(File.Exists(Application.persistentDataPath+"/gameData.txt")){
+			path=Application.persistentDataPath+"/gameData.txt";
 			uiManager.openLoadingPanel();
-			TextAsset dataTextAsset=Resources.Load<TextAsset>(fileUrl);
-			Debug.Log(dataTextAsset.text);
+			fileJson = File.ReadAllText(path);
+			Debug.Log(fileJson);
+			gameData=JsonUtility.FromJson<GameData>(fileJson);
+			changeText();
+			soundManager.fromDataChange();
+			uiManager.openGame();
+		}else if(Resources.Load<TextAsset>(fileUrl+"/gameData")!=null){
+			uiManager.openLoadingPanel();
+			TextAsset dataTextAsset=Resources.Load<TextAsset>(fileUrl+"/gameData");
 			fileJson = dataTextAsset.text;
 			gameData=JsonUtility.FromJson<GameData>(fileJson);
 			changeText();
@@ -59,16 +65,19 @@ public class GameDataManager : MonoBehaviour {
 	}
 
 	public void SaveFile(){
-		string path="Assets/Resources/"+fileUrl+".txt";
+		string path=Application.persistentDataPath+"/gameData.txt";
+		Debug.Log(path);
 		using(StreamWriter writer=new StreamWriter(path)){
-		//UIManager._instance.openLoadingPanel();
+		UIManager._instance.openLoadingPanel();
 		saveDataToObject();
 		string saveData=JsonUtility.ToJson(gameData);
 		//File.WriteAllText("Assets/Resources/"+fileUrl+".txt",saveData);
-			Debug.Log("Check:"+saveData);
+
 			writer.WriteLine(saveData);
+			Resources.Load(fileUrl+"/gameData");
 		}
-		Debug.Log("Finish");
+
+		UIManager._instance.openOptionPanel();
 	}
 
 }

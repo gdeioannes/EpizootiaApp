@@ -144,7 +144,7 @@ public class EscenarioSanitario : MonoBehaviour {
 		rollTxt.text=rollInfo;
 	}
 
-	private void reset(){
+	public void reset(){
 		maxInfluCardCount=GameDataManager._instance.gameData.fluCardNum;
 		rollTxt.gameObject.SetActive(false);
 		rollBtn.SetActive(true);
